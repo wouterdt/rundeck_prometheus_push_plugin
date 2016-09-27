@@ -1,13 +1,13 @@
 # rundeck_prometheus_push_plugin
-Rundeck notification plugin that sends simple metrics to prometheus push gateway.
+Rundeck notification plugin that sends simple metrics to prometheus push gateway on job start, success and failure.
 
 The following metrics are sent to prometheus push gateway(s):
 - on job start:
   - the epoch start time (prometheus with metric name 'rundeck_start' with the job's name as label)
-- on success:
+- on job success:
   - the epoch end time (prometheus metric name 'rundeck_end' with the job's name as label)
   - the exit status as 0 (prometheus metric name 'rundeck_exit' with the job's name as label)
-- on failure:
+- on job failure:
   - the epoch end time (prometheus metric name 'rundeck_end' with the job's name as label)
   - the exit status as 1 (prometheus metric name 'rundeck_exit' with the job's name as label)
 
