@@ -34,9 +34,9 @@ rundeckPlugin(NotificationPlugin){
     onfailure {
         def prometheus_list = configuration.prometheus_hosts.split(',')
         prometheus_list.each {
-             call(it,configuration.metric_prefix+ execution.job.name, "availability", 0 )
-             call(it,configuration.metric_prefix+ execution.job.name, "end", execution.dateEndedUnixtime)
-            call(it,configuration.metric_prefix+ execution.job.name, "start", execution.dateStartedUnixtime)
+             call(it,configuration.metric_prefix + execution.job.name, "availability", 0 )
+             call(it,configuration.metric_prefix + execution.job.name, "end", execution.dateEndedUnixtime)
+            call(it,configuration.metric_prefix + execution.job.name, "start", execution.dateStartedUnixtime)
         }
         true
     }
@@ -44,9 +44,9 @@ rundeckPlugin(NotificationPlugin){
     onsuccess {
         def prometheus_list = configuration.prometheus_hosts.split(',')
         prometheus_list.each {
-            call(it,configuration.metric_prefix+ execution.job.name, "availability", 100)
-            call(it,configuration.metric_prefix+ execution.job.name, "end", execution.dateEndedUnixtime)
-            call(it,configuration.metric_prefix+ execution.job.name, "start", execution.dateStartedUnixtime)
+            call(it,configuration.metric_prefix + execution.job.name, "availability", 100)
+            call(it,configuration.metric_prefix + execution.job.name, "end", execution.dateEndedUnixtime)
+            call(it,configuration.metric_prefix + execution.job.name, "start", execution.dateStartedUnixtime)
         }
         true
     }
